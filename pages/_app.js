@@ -1,5 +1,10 @@
-import '@/styles/globals.css'
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
+import '../styles/globals.scss'
 
-export default function App({ Component, pageProps }) {
-  return <Component {...pageProps} />
+function MyApp({ Component, pageProps }) {
+	return (
+			<Component {...pageProps} />
+	)
 }
+export default MyApp

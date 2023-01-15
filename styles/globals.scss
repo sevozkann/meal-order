@@ -1,0 +1,204 @@
+@import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;600;700&family=Open+Sans:wght@400;500;600;700&display=swap');
+@import "~tailwindcss/base";
+@import "~tailwindcss/components";
+@import "~tailwindcss/utilities";
+@import "~slick-carousel/slick/slick.css";
+@import "~slick-carousel/slick/slick-theme.css";
+
+.content-empty {
+  content: '';
+}
+body {
+  @apply lg:hidden;
+}
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+.slick-dots {
+  @apply mt-6;
+
+  &,
+  & li {
+    @apply relative;
+  }
+
+  .slick-active {
+    .dots {
+      @apply bg-primary;
+    }
+  }
+
+  .dots {
+    @apply w-4 h-4 border-2 bg-white border-white rounded-full;
+  }
+}
+
+.header {
+  @apply mx-auto w-full flex justify-between items-center py-2;
+
+  &-wrapper {
+    @apply flex justify-between items-center bg-secondary px-4;
+
+    &.-home {
+      @apply absolute inset-x-0 z-40 bg-transparent h-[5.5rem];
+    }
+
+    .menu-icon {
+      @apply text-white text-lg hover:text-primaryHover;
+    }
+
+    .logo {
+      @apply text-4xl text-white font-bold font-dancing;
+    }
+  }
+}
+
+.nav {
+  @apply absolute inset-0 hidden items-center justify-center bg-secondary z-10;
+
+  &-top {
+    @apply absolute top-0 inset-x-0 flex justify-end p-5;
+  }
+
+  &.-open {
+    @apply flex h-screen;
+  }
+
+  &-list {
+    @apply flex flex-col gap-4;
+
+    li {
+      @apply text-center;
+
+      a {
+        @apply text-white font-dancing text-4xl;
+        @apply hover:text-primaryHover;
+      }
+    }
+  }
+}
+
+.modal {
+  @apply absolute inset-0 m-auto z-50 w-full h-full p-5 bg-opacity-100;
+  @apply flex flex-col items-center justify-start;
+  @apply border border-solid border-white rounded bg-white;
+
+  &-close__icon {
+    @apply text-secondary text-xl hover:text-primaryHover;
+  }
+
+  &-top {
+    @apply absolute top-0 inset-x-0 flex justify-end pt-5 px-5;
+  }
+
+  &-wrapper {
+    @apply flex justify-center items-center fixed inset-0 w-screen h-screen overflow-hidden;
+    @apply bg-black bg-opacity-50 z-40;
+  }
+}
+
+.btn-primary {
+  @apply bg-primary text-base text-white rounded-full px-4 py-2;
+  @apply hover:bg-primaryHover;
+}
+
+.title {
+  @apply font-dancing tracking-wide mb-4;
+}
+
+input {
+  @apply w-full px-4 py-2 text-base text-secondary border border-solid border-secondary font-semibold tracking-wide;
+  @apply placeholder:text-base placeholder:text-gray placeholder:font-normal;
+
+  &:focus {
+    @apply outline-none;
+    @apply border border-solid border-primaryHover;
+  }
+}
+
+html,
+body {
+  @apply font-sans;
+}
+
+.text {
+  @apply text-base text-secondary font-sans;
+}
+
+.search-list {
+  @apply w-full h-full mt-10 overflow-hidden overflow-y-auto;
+
+  &__item {
+      @apply w-full flex items-center relative cursor-pointer mb-4;
+
+      &:hover {
+        .text,
+        .icon {
+          @apply text-primaryHover;
+        }
+      }
+
+      img {
+        @apply w-16 h-16 object-fill;
+      }
+
+      .text {
+        @apply ml-4 font-semibold;
+      }
+
+      .icon {
+        @apply text-xl absolute right-0;
+      }
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .header {
+    @apply py-0;
+
+    &-wrapper {
+      .hamburger {
+        @apply hidden;
+      }
+
+      .nav {
+        @apply relative flex bg-transparent z-10;
+
+        &.-open {
+          @apply h-auto;
+        }
+
+        &-top {
+          @apply hidden;
+        }
+
+        &-list {
+          @apply flex-row;
+
+          li {
+            a {
+              @apply font-sans text-lg;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  .modal {
+    @apply w-96 h-[38rem];
+  }
+}
+
+@media screen and (min-width: 1440px) {
+  .header {
+    @apply container;
+
+    &-wrapper {
+      @apply px-0;
+    }
+  }
+}
